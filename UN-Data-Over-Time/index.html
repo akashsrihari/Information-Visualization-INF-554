@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 1</title>
+</head>
+<body style="padding:0px 0px">
+<h1 style="font-family:Arial" align="center"> Assignment 1: UN Data over Time </h1>
+<div style="font-family:Arial;margin-left:100px;margin-right:100px">
+    The data used for the following visualizations was taken from 3 locations on the official UN website (<a href="http://data.un.org/Data.aspx?q=GDP&d=SNAAMA&f=grID%3a101%3bcurrID%3aUSD%3bpcFlag%3a0" target="blank">[1]</a><a href="http://data.un.org/Data.aspx?q=Population&d=PopDiv&f=variableID%3a12" target="blank">[2]</a><a href="http://data.un.org/Data.aspx?q=Unemployment&d=LABORSTA&f=tableCode%3a3A" target="blank">[3]</a>) and was modified to focus on the <a href="https://www.investopedia.com/insights/worlds-top-economies/" target="blank">top 10 countries with the largest economies</a>. They are:
+    <ol style="font-family:Arial">
+        <li>Brazil</li>
+        <li>Canada</li>
+        <li>China</li>
+        <li>France</li>
+        <li>Germany</li>
+        <li>India</li>
+        <li>Italy</li>
+        <li>Japan</li>
+        <li>United Kingdom</li>
+        <li>United States of America</li>
+    </ol>
+    These countries were compared with respect to their Gross Domestic Product (GDP), Population and Number of Unemployed People.
+</div>
+
+<h1 style="font-family:Arial" align="center"> 1) Gross Domestic Products (using iframe) </h1>
+<div style="font-family:Arial;margin-left:100px;margin-right:100px">
+    The following stacked column chart shows the GDP for the top 10 economies in the period 1970-2016. The chart is imported from <a href="https://docs.google.com/spreadsheets/d/12j52HkDqWc8gR1CMKEu_HGeD7os6rUUxCGyS7XV18qQ/edit#gid=1264931941" target="blank">this google doc</a> where the data used to create it is also available as a pivot table. <b>Fun Fact:</b> These top 10 economies were worth 2.16 Trillion USD in 1970 and grew to 51 Trillion USD in 2016.
+</div>
+<iframe width="1222" height="755" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2wjb7n7aMHspkFISU8wGg1Ff5_j7PPzn7at7s5IbQ2JgtIdlU76Eo5Fabt-CiRtLrOtTRG3Mms8ax/pubchart?oid=1146573728&amp;format=interactive"></iframe>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var query = new google.visualization.Query("https://docs.google.com/spreadsheets/d/12j52HkDqWc8gR1CMKEu_HGeD7os6rUUxCGyS7XV18qQ/edit#gid=805596724");
+        query.send(handleQueryResponse);
+    }
+
+    function handleQueryResponse(response) {
+        if (response.isError()) {
+            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+            return;
+        }
+
+        var options = {
+
+            curveType: 'none',
+            legend: { position: 'top' },
+            width: 1430,
+            height: 755,
+            vAxis: {
+                scaleType: 'log',
+                title: "Population"
+            },
+            hAxis: {
+                title: "Year"
+            }
+        };
+
+        var data = response.getDataTable();
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+
+</script>
+
+<h1 style="font-family:Arial" align="center"> 2) Population (using javascript) </h1>
+<div style="font-family:Arial;margin-left:100px;margin-right:100px">
+    In the following line chart, the populations for each of the top 10 economies are shown in the period 1950-2027. The data used for this chart can be found <a href="https://docs.google.com/spreadsheets/d/12j52HkDqWc8gR1CMKEu_HGeD7os6rUUxCGyS7XV18qQ/edit#gid=805596724" target="blank">here</a>. It can be observed that <i>India is predicted to overtake China with respect to population around 2024</i>. The next chart in section 3 shows the number of people unemployed in these top 10 economies for some of the corresponding years.
+</div>
+<br>
+<br>
+<div>
+    <h2 align="center" style="font-family:Arial;margin:0px 0px;padding-bottom:0px">Population of Top 10 economies over time</h2>
+    <div id="chart_div" style="margin:0px 0px;padding-top:0px"></div>
+</div>
+
+
+
+<h1 style="font-family:Arial" align="center"> 3) Unemployment (using image) </h1>
+<div style="font-family:Arial;margin-left:100px;margin-right:100px">
+    The following chart shows how the unemployment in each of the countries mentioned above. The data and chart using which this image was generated can be found <a href="https://docs.google.com/spreadsheets/d/12j52HkDqWc8gR1CMKEu_HGeD7os6rUUxCGyS7XV18qQ/edit#gid=2082997371" target="blank">here</a>. Using this chart, it can be observed that India has the highest unemployment and Canada has the lowest unemployment compared to the other countries. Surprisingly, Japan has more unemployed people even though its population and area are lesser than Canada.
+</div>
+<img src="Unemployment.png" align="center" width="1222" height="755">
+
+</body>
+</html>
+
