@@ -1,0 +1,107 @@
+<html>
+<body>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<h1 style="font-family:Arial" align="center"> Assignment 2: Bubble Chart </h1>
+
+<div style="font-family:Arial;margin-left:30px;margin-right:30px;justify-content: left;display: block">
+    The data used for the following visualizations was taken from the UN website and was modified to focus on GDPs of the <a href="https://www.investopedia.com/insights/worlds-top-economies/" target="blank">top 10 countries with the largest economies</a> in the year 2016. They are:
+    <ol style="font-family:Arial">
+        <li>Brazil</li>
+        <li>Canada</li>
+        <li>China</li>
+        <li>France</li>
+        <li>Germany</li>
+        <li>India</li>
+        <li>Italy</li>
+        <li>Japan</li>
+        <li>United Kingdom</li>
+        <li>United States of America</li>
+    </ol>
+</div>
+
+<h1 style="font-family:Arial" align="center"> 1) GDP Bubble Chart (using Inkscape generated svg) </h1>
+
+<div style="font-family:Arial;margin-left:30px;margin-right:30px;justify-content: left;display: block">
+    The following bubble chart was created using Inkscape. The diameter of each bubble was set in centimetres as the GDP in trillion USD in 2016. The data used to generate this bubble chart can be found <a href="https://docs.google.com/spreadsheets/d/12j52HkDqWc8gR1CMKEu_HGeD7os6rUUxCGyS7XV18qQ/edit#gid=1264931941" target="blank">here</a>
+</div>
+
+<div>
+    <img src="drawing.svg" width="793.701px" height="1122.520px">
+</div>
+
+<h1 style="font-family:Arial" align="center"> 2) GDP Bubble Chart (using svg element in HTML) </h1>
+
+<div style="font-family:Arial;margin-left:30px;margin-right:30px;justify-content: left;display: block">
+    The following bubble chart was created by taking the coordinate information (converted from centimetre to px) from Inkscape. The chart was created as an svg element in html and the coordinate information was manually fed in.
+</div>
+
+<div>
+    <svg width="793.701px" height="1122.520px">
+        <circle cx="355.41px" cy="355.081px" r="351.496px" />
+        <text x="9.494px" y="411.939px" font-size="114px">
+            <tspan x="15.494px" y="351.939px">United States</tspan>
+            <tspan x="85.494px" y="471.939px">of America</tspan>
+        </text>
+
+        <circle cx="708.215px" cy="628.446px" r="65.764px" />
+        <text x="646.457px" y="638.446px" font-size="30px">
+            Germany
+        </text>
+
+        <circle cx="170.126px" cy="774.499px" r="93.354px" />
+        <text x="88.126px" y="790.499px" font-size="60px">
+            Japan
+        </text>
+
+        <circle cx="575.016px" cy="902.8px" r="211.653px" />
+        <text x="385.016px" y="952.8px" font-size="144px">
+            China
+        </text>
+
+        <circle cx="302.616px" cy="878.485px" r="50.078px" />
+        <text x="302.616px" y="878.485px" font-size="22px">
+            <tspan x="270.616px" y="873.485px">United</tspan>
+            <tspan x="258.616px" y="898.485px">Kingdom</tspan>
+        </text>
+
+        <circle cx="58.799px" cy="906.130px" r="46.677px" />
+        <text x="22.799px" y="913.130px" font-size="24px">
+            France
+        </text>
+
+        <circle cx="184.129px" cy="968.687px" r="42.708px" />
+        <text x="149.129px" y="978.687px" font-size="32px">
+            India
+        </text>
+
+        <circle cx="315.971px" cy="1004.53px" r="35.149px" />
+        <text x="288.971px" y="1014.53px" font-size="30px">
+            Italy
+        </text>
+
+        <circle cx="115.576px" cy="1062.659px" r="34.015px" />
+        <text x="85.576px" y="1069.659px" font-size="24px">
+            Brazil
+        </text>
+
+        <circle cx="225.338px" cy="1076.348px" r="28.913px" />
+        <text x="198px" y="1082.348px" font-size="15.5px">
+            Canada
+        </text>
+    </svg>
+</div>
+
+<h1 style="font-family:Arial" align="center"> 3) GDP Bubble Chart (using javascript) </h1>
+
+<div style="font-family:Arial;margin-left:30px;margin-right:30px;justify-content: left;display: block">
+    The following bubble chart was created by taking the coordinate information (converted from centimetre to px) from Inkscape, similar to the previous chart. This chart however, was created using javascript to retrieve an svg element and add circles and text to it. The information for the circles and text was stored in javascript program itself as a list of objects.
+</div>
+
+<div>
+    <svg id="chart" width="793.701px" height="1122.520px"></svg>
+</div>
+<script src="chart.js"></script>
+</body>
+</html>
