@@ -1,0 +1,27 @@
+<br>
+<h1>Assignment 8: Responsive Charts</h1>
+The data used for generating the bar chart shown below is taken from the <a href="http://data.un.org/Data.aspx?q=GDP&d=SNAAMA&f=grID%3a101%3bcurrID%3aUSD%3bpcFlag%3a0" target="blank">UN Database for GDP of countries</a> and was modified to focus on the <a href="https://www.investopedia.com/insights/worlds-top-economies/" target="blank">top 10 countries with the largest economies</a>.
+They are:
+<ul>
+  <li>Brazil</li>
+  <li>Canada</li>
+  <li>China</li>
+  <li>France</li>
+  <li>Germany</li>
+  <li>India</li>
+  <li>Italy</li>
+  <li>Japan</li>
+  <li>United Kingdom</li>
+  <li>United States of America</li>
+</ul>
+<h2>1) Bubble Chart</h2>
+The bubble chart shows the GDP of each country as its radius. When the mouse is hovered over either the label in hte bubble chart or the bubble itself, a tooltip appears showing the GDP of the country in 2016.
+<app-bubble-chart></app-bubble-chart>
+<h2>2) Line Chart</h2>
+The following line chart shows how each country's GDP has changed since the year 1970. By hovering over any line, a tooltip can be made visible showing the country name and its GDP for that year. The lines get highlighted in red when clicked on. Their corresponding label in the legend also gets highlighted. Upon resizing the window, the line chart becomes scrollable.
+<br>
+<br>
+<app-linechart></app-linechart>
+<h2>3) Pie Chart</h2>
+The following pie chart uses data 2016 GDP data for 5 countries randomly chosen from the 10 listed above. Each section of the pie chart increases in size when hovered on. The card beside the pie chart shows the country hovered on and its GDP in 2016. When resized, the card moves under the pie chart to make it more readable.
+<app-piechart></app-piechart>

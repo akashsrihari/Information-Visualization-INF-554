@@ -1,0 +1,44 @@
+body {
+    margin-left: 50px;
+    margin-right: 50px;
+    font-family: Arial;
+}
+
+div.text {
+    display: block;
+    text-align: left;
+    justify-content: left;
+}
+
+div.centered {
+    text-align: center;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+}
+
+table, td, tr, th {
+    border: 1px solid black;
+    text-align: left;
+    font-size: 15px;
+}
+
+h1:after
+{
+    content:' ';
+    display:block;
+    border:0.5px solid black;
+}
+
+h2:after
+{
+    content:' ';
+    display:block;
+    border:0.5px solid black;
+}
+
+div.btn-block button {
+    margin: 5px 5px 5px 5px;
+}

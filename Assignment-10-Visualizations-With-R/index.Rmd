@@ -1,0 +1,115 @@
+---
+title: "Assigment 10"
+output:
+  html_document: default
+  html_notebook: default
+---
+
+## Load Data
+
+```{r}
+meteorites <- read.csv("data/meteorites.csv")
+meteorites$year <- format(as.Date(meteorites$year, format="%d/%m/%Y"),"%Y")
+meteorites <- meteorites[order(meteorites$year),]
+rownames(meteorites) <- 1:nrow(meteorites)
+```
+
+## Scatter Plot
+
+```{r}
+df <- aggregate(meteorites$mass..g., by=list(meteorites$year), FUN=sum, na.rm=TRUE)[2:270, c('Group.1', 'x')]
+sortedDF <- df[order(df$Group.1),]
+library("ggplot2")
+ggplot(sortedDF[240:258, c('Group.1', 'x')], aes(Group.1, x)) + geom_point() + ggtitle("Scatterplot showing Mass of meteorites per year") + labs(y="Mass of Meteorites", x = "Year")
+```
+
+## Text Plot
+
+```{r}
+df1 <- aggregate(meteorites$mass..g., by=list(meteorites$year, meteorites$recclass), FUN=sum, na.rm=TRUE)
+df1 <- df1[order(df1$Group.1),]
+rownames(df1) <- 1:nrow(df1)
+plottingData = subset(df1, df1$Group.1 > 1995 & df1$Group.1 < 2014)
+ggplot(plottingData, aes(plottingData$Group.1, plottingData$x)) + geom_text(aes(label = plottingData$Group.2), check_overlap = TRUE) + ggtitle("Text Plot showing Mass of meteorites per year") + labs(y="Mass of Meteorites", x = "Year")
+```
+
+## Bar Chart
+
+```{r}
+ggplot(meteorites[30000:44000,], aes(meteorites[30000:44000,]$year)) + geom_bar() + ggtitle("Bar Chart showing meteorites per year") + labs(y="Number of Meteorites", x = "Year")
+```
+
+## Line Chart
+
+```{r}
+ggplot(sortedDF[240:258, c('Group.1', 'x')], aes(Group.1, x, group=1)) + geom_line() + ggtitle("Line Chart showing ,ass of meteorites per year") + labs(y="Mass of Meteorites", x = "Year")
+```
+
+## Area Chart
+
+```{r}
+ggplot(sortedDF[240:258, c('Group.1', 'x')], aes(Group.1, x, group=1)) + geom_area() + ggtitle("Area Chart showing mass of meteorites per year") + labs(y="Mass of Meteorites", x = "Year")
+```
+
+## Dot Plot
+
+```{r}
+set.seed(1)
+temp <- meteorites[sample(nrow(meteorites), 200),]
+temp <- temp[order(temp$year),]
+rownames(temp) <- 1:nrow(temp)
+ggplot(temp[100:200,], aes(temp[100:200,]$year)) + geom_dotplot(binwidth=0.4) + ggtitle("Dot Plot showing meteorites per year") + labs(y="Number of Meteorites", x = "Year")
+```
+
+## Histogram
+
+```{r}
+ggplot(temp, aes(x = mass..g.)) + geom_histogram(binwidth = 10000) + ggtitle("Histogram showing mass of meteorites binned") + labs(y="Frequency", x = "Mass")
+```
+
+## Frequency Polygon
+
+```{r}
+ggplot(temp, aes(x = mass..g.)) + geom_freqpoly(color="blue") + ggtitle("Frequency Polygon showing mass of meteorites binned") + labs(y="Frequency", x = "Mass")
+```
+
+## Box Plot
+
+```{r}
+ggplot(temp, aes(recclass, mass..g.)) + geom_boxplot() + ggtitle("Box Plot showing mass of meteorites by type") + labs(y="Mass", x = "Type of Meteorite")
+```
+
+## Violin Chart
+
+```{r}
+ggplot(temp, aes(recclass, mass..g.)) + geom_violin() + ggtitle("Violin Chart showing mass of meteorites by type") + labs(y="Mass", x = "Type of Meteorite")
+```
+
+## Facet
+
+```{r}
+plottingData1 <- plottingData[sample(nrow(plottingData), 5),]
+ggplot(plottingData1, aes(plottingData1$Group.2, plottingData1$x, color = plottingData1$Group.1)) +
+  geom_point() +
+  facet_grid(cols=vars(plottingData1$Group.1)) +
+  theme(legend.position="none")
+```
+
+## Plotly
+
+```{r}
+library(plotly)
+ggplot(sortedDF[240:258, c('Group.1', 'x')], aes(Group.1, x)) + geom_point() + ggtitle("Scatterplot showing Mass of meteorites per year") + labs(y="Mass of Meteorites", x = "Year")
+ggplotly()
+```
+
+## Statenmap
+
+```{r}
+library(ggmap)
+bb <- c(left = -125.39, bottom = 31.0, right = -113.5, top = 42.0)
+stamenmap.ca <- get_stamenmap(bbox = bb, zoom = 6, maptype = "toner")
+
+my_house <- data.frame(label = "Troy East", lon=-118.2818, lat=34.0257)
+ggmap(stamenmap.ca) + geom_point(data = my_house, aes(x=-118.2818, y=34.0257), color="red", size=2)
+```

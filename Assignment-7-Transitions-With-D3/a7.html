@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="node_modules/d3/dist/d3.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Assignment 7</title>
+</head>
+<body id="main">
+<h1>Assignment 7: Interactive charts</h1>
+<div class="text">
+    The data used for generating the bar chart shown below is taken from the <a href="http://data.un.org/Data.aspx?q=Population&d=PopDiv&f=variableID%3a12" target="blank">UN website</a> and was modified to focus on the <a href="https://www.investopedia.com/insights/worlds-top-economies/" target="blank">top 10 countries with the largest economies</a>. They are:
+    <ol>
+        <li>Brazil</li>
+        <li>Canada</li>
+        <li>China</li>
+        <li>France</li>
+        <li>Germany</li>
+        <li>India</li>
+        <li>Italy</li>
+        <li>Japan</li>
+        <li>United Kingdom</li>
+        <li>United States of America</li>
+    </ol>
+
+    These countries are compared with respect to their population in the year 2016. There are 5 buttons below the bar chart. These buttons allow the user to visualize the chart in 5 different ways:
+    <ol>
+        <li>In ascending order of country name</li>
+        <li>Show all 10 countries in the same order as the previous state</li>
+        <li>Top 5 countries in terms of population in the same order as the previous state</li>
+        <li>Bottom 5 countries in terms of population in the same order as the previous state</li>
+        <li>Currently displayed countries in ascending order of country name</li>
+        <li>Currently displayed countries in ascending order of country population</li>
+        <li>Currently displayed countries in descending order of country population</li>
+    </ol>
+</div>
+<div class="container">
+    <svg id="barchart" height="480px"></svg>
+</div>
+<div class="centered" id="buttons">
+    <div class="btn-block">
+        <button type="button" class="btn btn-primary" id="countryName">Default (Alphabetic order)</button>
+        <button type="button" class="btn btn-primary" id="allTen">Show All 10</button>
+        <button type="button" class="btn btn-primary" id="topFive">Top 5 (Population)</button>
+        <button type="button" class="btn btn-primary" id="bottomFive">Bottom 5 (Population)</button>
+        <button type="button" class="btn btn-primary" id="ascCountry">Order By Country Name (Alphabetic)</button>
+        <button type="button" class="btn btn-primary" id="ascPop">Order By Population (Ascending)</button>
+        <button type="button" class="btn btn-primary" id="descPop">Order By Population (Descending)</button>
+    </div>
+</div>
+<script src="chart.js"></script>
+</body>
+</html>

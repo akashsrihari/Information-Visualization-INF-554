@@ -1,0 +1,44 @@
+<br>
+<h1>Assignment 8: Responsive Charts</h1>
+The data used for generating the charts shown below is taken from the <a href="http://data.un.org/Data.aspx?q=GDP&d=SNAAMA&f=grID%3a101%3bcurrID%3aUSD%3bpcFlag%3a0" target="blank">UN Database for GDP of countries</a> and the <a href="https://data.lacounty.gov/Arts-and-Culture/Map-LA-County-Museums/svhk-hgbg" target="blank">County of Los Angeles Open Data</a> and was modified to focus on the <a href="https://www.investopedia.com/insights/worlds-top-economies/" target="blank">top 10 countries with the largest economies</a>.
+They are:
+<ul>
+  <li>Brazil</li>
+  <li>Canada</li>
+  <li>China</li>
+  <li>France</li>
+  <li>Germany</li>
+  <li>India</li>
+  <li>Italy</li>
+  <li>Japan</li>
+  <li>United Kingdom</li>
+  <li>United States of America</li>
+</ul>
+<h2>1) World Proportional Symbol Map</h2>
+The following chart shows a circle for each of the countries mentioned above with its radius relative to the GDP of that country in the year 2016. Using the radius of circles given in the legend, each country's GDP can be calculated accurately using a scale or can be estimated intuitively.
+<br>
+<br>
+<h3 class="chartTitle">Proportional Symbol Map showing GDP for top 10 countries with the largest economies</h3>
+<div class="row justify-content-center">
+  <app-world-proportional-symbol></app-world-proportional-symbol>
+</div>
+<br>
+<br>
+<h2>2) World Chloropleth Map</h2>
+The following chart colour codes each country with the colour intensity relative to the GDP of the country. The colour corresponds to the legend, where each colour is a threshold. Here, the value cannot be estimated accurately by any scale, only intuitively.
+<br>
+<br>
+<h3 class="chartTitle">Chloropleth Map showing GDP for top 10 countries with the largest economies</h3>
+<div class="row justify-content-center">
+  <app-chloropleth></app-chloropleth>
+</div>
+<br>
+<br>
+<h2>3) Los Angeles County Chloropleth Map</h2>
+The following chart colour codes each neighborhood in the Los Angeles County with the colour intensity relative to the number of museums in the neighborhood, similar to the previous chart. Since there are a large number of labels in this chart, they are shown using a tooltip which becomes visible when hovered upon it. This tooltip also shows the number of museums so that they don't have to be estimated intuitively.
+<br>
+<br>
+<h3 class="chartTitle">Chloropleth Map showing number of museums in the neighborhoods of the Los Angeles County</h3>
+<div class="row justify-content-center">
+  <app-la-chloropleth></app-la-chloropleth>
+</div>

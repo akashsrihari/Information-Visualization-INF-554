@@ -1,0 +1,42 @@
+[
+  {
+    "Country": "Brazil",
+    "GDP2016": 1.8
+  },
+  {
+    "Country": "Canada",
+    "GDP2016": 1.53
+  },
+  {
+    "Country": "China",
+    "GDP2016": 11.22
+  },
+  {
+    "Country": "France",
+    "GDP2016": 2.47
+  },
+  {
+    "Country": "Germany",
+    "GDP2016": 3.48
+  },
+  {
+    "Country": "India",
+    "GDP2016": 2.26
+  },
+  {
+    "Country": "Italy",
+    "GDP2016": 1.86
+  },
+  {
+    "Country": "Japan",
+    "GDP2016": 4.94
+  },
+  {
+    "Country": "UK",
+    "GDP2016": 2.65
+  },
+  {
+    "Country": "USA",
+    "GDP2016": 18.62
+  }
+]

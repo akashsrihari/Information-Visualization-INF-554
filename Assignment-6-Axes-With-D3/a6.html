@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Assignment 6</title>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body id="main">
+<h1>D3 in HTML</h1>
+<div class="text">
+    The data used to create the charts used in this assignment is taken from World Bank's data on <a href="https://data.worldbank.org/indicator/SP.RUR.TOTL.ZS" target="_blank">Rural Population</a>. The dataset provides information in the year range 1960-2017 for 264 countries, but the charts shown below are built using 2017 data on 20 countries only for convenience. The charts and tables used in this web page are built using <a href="https://github.com/d3/d3/blob/master/API.md" target="_blank">D3 Version 5</a>.
+</div>
+<h2>Rural Population Data (Table)</h2>
+<div class="text">
+    As mentioned above, the data used is for Rural Population in 20 countries. The countries with the largest rural populations were chosen to compare the variation in such a short range. These countries, with their country code and rural population (as % of total population) in 2017 are shown in the table below.
+    <br>
+    <br>
+    <b>Table 1</b> Country name, code and percentage rural population for 20 countries with the largest rural population
+</div>
+<table id="table1"></table>
+<h2>Rural Population Data (Bar Chart)</h2>
+<div class="text">
+    The data shown in Table 1 was used to create the bar chart in this section. The colors of each bar are determined by the magnitude of their value (the darker the color, the greater the rural population). The values on the X-axis show the country code and the values on Y axis show rural population (as % of total population).
+</div>
+<br>
+<svg id="barchart" height="330px"></svg>
+<div class="text">
+    <div class="centered">
+        <b>Figure 1</b>&nbsp;Bar chart showing Rural Population (as % of Total Population) in 2017 for 20 Countries
+    </div>
+</div>
+<h2>Rural Population Data (Scatterplot)</h2>
+<div class="text">
+    The data from Table 1 was used to create the scatterplot shown in Figure 2. Compared to the bar chart in Figure 1, the scatterplot is tougher to read and difficult to compare values with. The color scheme used in Figure 1 was also used here. The values on the X-axis show the country code and the values on Y axis show rural population (as % of total population).
+</div>
+<br>
+<svg id="scatterplot" height="330px"></svg>
+<div class="text">
+    <div class="centered">
+        <b>Figure 2</b>&nbsp;Scatterplot showing Rural Population (as % of Total Population) in 2017 for 20 Countries
+    </div>
+</div>
+<h2>Rural Population Data (Slope graph)</h2>
+<div class="text">
+    The data used to construct this graph used a different dataset that the rest of the charts on this page. An additional column was added to the data in Table 1 to show how the rural population changed between the years 1960 and 2017. The issue faced with the slopegraph is that values overlap when they are close to each other on scale. In this case, there were overlapping values even when the height of the svg chart was set to 16000px. To avoid this, only 10 countries were chosen such that the information is clearly displayed. Using the slopegraph, we can observe that in most of the countries rural population has reduced.
+</div>
+<br>
+<svg id="slopegraph" height="1000px"></svg>
+<div class="text">
+    <div class="centered">
+        <b>Figure 3</b>&nbsp;Slope graph showing Rural Population (as % of Total Population) change from 1960 to 2017 for 20 Countries
+    </div>
+</div>
+<script src="chart.js"></script>
+</body>
+</html>
